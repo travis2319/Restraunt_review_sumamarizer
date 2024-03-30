@@ -1,5 +1,7 @@
 # Restaurant Review Summarizer
-This project uses Python and Jupyter Lab to perform sentiment analysis on restaurant reviews and summarize them into a score from 1 to 10, with 1 being the worst and 10 being the best.
+This project uses Python and Jupyter Lab to perform sentiment analysis on restaurant reviews and summarize them into a score from 1 to 5, with 1 being the worst and 5 being the best.
+
+Note: In Summarizer.ipynb, please fill with you huggingface token in headers for the review_summarizer function to process and summarize reviews. 
 
 # Getting Started
 Clone the repository:
