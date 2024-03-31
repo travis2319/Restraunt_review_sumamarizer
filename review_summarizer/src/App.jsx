@@ -1,45 +1,25 @@
-import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Papa from "papaparse";
 import "./App.css";
 
 function App() {
-  const [data, setData] = useState([]);
-
+  const navigate = useNavigate();
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
     Papa.parse(file, {
       header: true,
+      output: "json",
       complete: (results) => {
-        setData(results.data);
+        const res = results.data;
+        console.log(res);
+        navigate("/home", { state: res });
       },
     });
   };
-  console.log(data);
+
   return (
     <div>
       <input type="file" accept=".csv" onChange={handleFileUpload} />
-      {/* {data.length ? (
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Restaurant</th>
-                <th>Result</th>
-                <th>Summary</th>
-                <th>Rating</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.map((row, index) => (
-                <tr key={index}>
-                  <td>{row.Restaurant}</td>
-                  <td>{row.Result}</td>
-                  <td>{row.Summary}</td>
-                  <td>{row.Rating}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        ) : null} */}
     </div>
   );
 }
