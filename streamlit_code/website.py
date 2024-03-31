@@ -11,7 +11,7 @@ query = st.text_input("Enter your search query:", "")
 search_btn = st.button("Search")
 # pd.options.display.max_rows= 9999
 # Read the contents of the CSV file
-df = pd.read_csv('Final_Dataset.csv')
+df = pd.read_csv('../Dataset/Final_Dataset.csv')
 print(df.Restaurant)
 # Define a function to retrieve the search results and display them in a list
 # def search_results(query):
