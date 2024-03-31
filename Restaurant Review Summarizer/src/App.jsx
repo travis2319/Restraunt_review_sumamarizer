@@ -6,15 +6,15 @@ import "./App.css";
 function App() {
   const [data, setData] = useState([]);
 
-  const handleFileUpload = (e) => {
-    const file = e.target.files[0];
-    Papa.parse(file, {
-      header: true,
-      complete: (results) => {
-        setData(results.data);
-      },
-    });
-  };
+  // const handleFileUpload = (e) => {
+  //   const file = e.target.files[0];
+  //   Papa.parse(file, {
+  //     header: true,
+  //     complete: (results) => {
+  //       setData(results.data);
+  //     },
+  //   });
+  // };
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -29,9 +29,18 @@ function App() {
   //   fetchData();
   // }, []);
 
+  useEffect(() => {
+    Papa.parse("data", {
+      download: true,
+      complete: function (results) {
+        console.log(results);
+      },
+    });
+  });
+
   return (
     <div>
-      <input type="file" accept=".csv" onChange={handleFileUpload} />
+      {/* <input type="file" accept=".csv" onChange={handleFileUpload} /> */}
       {data.length ? (
         <table className="table">
           <thead>
