@@ -20,6 +20,8 @@ function App() {
   return (
     <div>
       <input type="file" accept=".csv" onChange={handleFileUpload} />
+      <br />
+      <p>Upload the Dataset file which is there in dataset folder</p>
     </div>
   );
 }
