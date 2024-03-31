@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import Data from "./../../assets/Final_Dataset.csv";
 import Papa from "papaparse";
-import Data from "./assets/Final_Dataset.csv";
-import "./App.css";
 
-function App() {
+function Test() {
   const [data, setData] = useState([]);
+
+  // parse CSV data & store it in the component state
 
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
@@ -19,10 +20,13 @@ function App() {
   // useEffect(() => {
   //   const fetchData = async () => {
   //     const response = await fetch(Data);
-  //     const csvData = await response.text();
+  //     const reader = response.body.getReader();
+  //     const result = await reader.read();
+  //     const decoder = new TextDecoder("utf-8");
+  //     const csvData = decoder.decode(result.value);
   //     const parsedData = Papa.parse(csvData, {
   //       header: true,
-  //       skipEmptyLines: false,
+  //       skipEmptyLines: true,
   //     }).data;
   //     setData(parsedData);
   //   };
@@ -30,7 +34,7 @@ function App() {
   // }, []);
 
   return (
-    <div>
+    <div className="App">
       <input type="file" accept=".csv" onChange={handleFileUpload} />
       {data.length ? (
         <table className="table">
@@ -52,8 +56,10 @@ function App() {
           </tbody>
         </table>
       ) : null}
+      <br />
+      <br />~ webstylepress ~
     </div>
   );
 }
 
-export default App;
+export default Test;
