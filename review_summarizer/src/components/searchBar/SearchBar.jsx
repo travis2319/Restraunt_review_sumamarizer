@@ -2,18 +2,17 @@ import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import "./SearchBar.css";
 
-const SearchBar = () => {
+const SearchBar = ({ Restaurant }) => {
   const [input, setInput] = useState("");
-
-  const fetchData = (value) => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((json) => console.log(json));
-  };
 
   const handleChange = (value) => {
     setInput(value);
-    fetchData(value);
+    // console.log(value);
+    // fetchData(value);
+  };
+
+  const setResaurant = () => {
+    Restaurant(input);
   };
 
   return (
@@ -27,6 +26,7 @@ const SearchBar = () => {
           handleChange(e.target.value);
         }}
       />
+      <button onClick={setResaurant}> submit</button>
     </div>
   );
 };

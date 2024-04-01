@@ -43,6 +43,7 @@ function Test() {
               <th>Restaurant</th>
               <th>Result</th>
               <th>Summary</th>
+              <th>Rating</th>
             </tr>
           </thead>
           <tbody>
@@ -51,6 +52,7 @@ function Test() {
                 <td>{row.Restaurant}</td>
                 <td>{row.Result}</td>
                 <td>{row.Summary}</td>
+                <td>{row.Rating}</td>
               </tr>
             ))}
           </tbody>
